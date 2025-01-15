@@ -8,7 +8,9 @@ app_license = "mit"
 
 # Includes in <head>
 # ------------------
-
+website_route_rules = [
+	{"from_route": "/pwa/<path:app_path>", "to_route": "pwa"},
+]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/pwa/css/pwa.css"
 # app_include_js = "/assets/pwa/js/pwa.js"

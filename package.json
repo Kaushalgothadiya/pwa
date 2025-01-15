@@ -1,0 +1,14 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "pwa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yarn build-pwa",
+    "build-pwa": "cd frontend && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
