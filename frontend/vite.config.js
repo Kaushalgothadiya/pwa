@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa';
+import frappeui from "frappe-ui/vite"
 
 import path from "path"
 import fs from "fs"
@@ -14,9 +15,11 @@ export default defineConfig({
 		port: 8080,
 		proxy: getProxyOptions(),
 	},
-    base: '/assets/pwa/frontend/', // Ensure paths match where Frappe serves your files
+    // base: '/assets/pwa/frontend/', // Ensure paths match where Frappe serves your files
+    base:'/',
   plugins: [
     vue(),
+    frappeui(),
     vueJsx(),
     vueDevTools(),
     VitePWA({
@@ -25,24 +28,38 @@ export default defineConfig({
         enabled: true, // Enable service worker in development mode
       },
       manifest: {
+		display: "standalone",
         name: 'My PWA App',
         short_name: 'PWA App',
+		start_url: "/pwa",
         description: 'A Vite + Vue Progressive Web App',
-        theme_color: '#42b983',
-        start_url: "/pwa/",
-        display: "standalone",
+        theme_color:"#ffffff",
         icons: [
-          {
-            src: '/assets/pwa/frontend/icon.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/assets/pwa/frontend/icon.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
+					{
+						src: "/assets/pwa/manifest/manifest-icon-192.maskable.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "any",
+					},
+					{
+						src: "/assets/pwa/manifest/manifest-icon-192.maskable.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "maskable",
+					},
+					{
+						src: "/assets/pwa/manifest/manifest-icon-512.maskable.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "any",
+					},
+					{
+						src: "/assets/pwa/manifest/manifest-icon-512.maskable.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "maskable",
+					},
+				],
       },
       workbox: {
         runtimeCaching: [
@@ -66,6 +83,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  optimizeDeps: {
+		include: [
+			"frappe-ui > feather-icons",
+			"showdown",
+			"tailwind.config.js",
+			"engine.io-client",
+		],
+	},
   build: {
 		outDir: "../pwa/public/frontend",
 		emptyOutDir: true,

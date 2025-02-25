@@ -1,0 +1,4 @@
+var d=(n,r,o)=>new Promise((s,t)=>{var a=e=>{try{i(o.next(e))}catch(c){t(c)}},m=e=>{try{i(o.throw(e))}catch(c){t(c)}},i=e=>e.done?s(e.value):Promise.resolve(e.value).then(a,m);i((o=o.apply(n,r)).next())});import{ad as l,ae as p}from"./index-CXYPgwiC.js";import{f,s as w}from"./index8-B-qtFSF6.js";import{c as h}from"./helpers-CzL6S9NS.js";/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const P=()=>{const n=window;n.addEventListener("statusTap",()=>{l(()=>{const r=n.innerWidth,o=n.innerHeight,s=document.elementFromPoint(r/2,o/2);if(!s)return;const t=f(s);t&&new Promise(a=>h(t,a)).then(()=>{p(()=>d(void 0,null,function*(){t.style.setProperty("--overflow","hidden"),yield w(t,300),t.style.removeProperty("--overflow")}))})})})};export{P as startStatusTap};
+//# sourceMappingURL=status-tap-DgDBJM51.js.map

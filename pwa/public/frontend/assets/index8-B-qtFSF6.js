@@ -1,0 +1,4 @@
+var N=(o,t,n)=>new Promise((e,r)=>{var E=s=>{try{c(n.next(s))}catch(T){r(T)}},i=s=>{try{c(n.throw(s))}catch(T){r(T)}},c=s=>s.done?e(s.value):Promise.resolve(s.value).then(E,i);c((n=n.apply(o,t)).next())});import{c as a}from"./helpers-CzL6S9NS.js";/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const O="ION-CONTENT",C="ion-content",m=".ion-content-scroll-host",_=`${C}, ${m}`,l=o=>o.tagName===O,u=o=>N(void 0,null,function*(){return l(o)?(yield new Promise(t=>a(o,t)),o.getScrollElement()):o}),I=o=>o.closest(_),S=(o,t)=>l(o)?o.scrollToTop(t):Promise.resolve(o.scrollTo({top:0,left:0,behavior:"smooth"})),h=(o,t,n,e)=>l(o)?o.scrollByPoint(t,n,e):Promise.resolve(o.scrollBy({top:n,left:t,behavior:e>0?"smooth":"auto"}));export{h as a,I as f,u as g,S as s};
+//# sourceMappingURL=index8-B-qtFSF6.js.map

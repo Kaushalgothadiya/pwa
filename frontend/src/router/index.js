@@ -1,11 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import { createRouter, createWebHistory } from "@ionic/vue-router"
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHistory("/pwa/"),
+  history: createWebHistory("/pwa"),
   routes: [
     {
-      path: '/',
+      path: "/pwa",
+      redirect: "/home",
+    },
+    {
+      path: "/pwa/",
+      redirect: "/home",
+    },
+    {
+      path: "/",
+      redirect: "/home",
+    },
+    {
+      path: "",
+      redirect: "/home",
+    },
+    {
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
@@ -21,6 +38,26 @@ const router = createRouter({
       path:'/contact',
       name:'contact',
       component:()=>import('../views/ContactView.vue')
+    },
+    {
+      path:'/todo-list',
+      name:'todo-list',
+      component:()=>import('../views/TodoListView.vue')
+    },
+    {
+      path:'/todo-form/:id',
+      name:'tododetail',
+      component:()=>import('../views/ToDoDetail.vue')
+    },
+    {
+      path:'/todo-create',
+      name:'todocreate',
+      component:()=>import('../views/ToDoCreate.vue')
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:()=>import('../views/Login.vue')
     }
   ],
 })
